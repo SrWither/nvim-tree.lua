@@ -236,6 +236,11 @@ function M.on_enter(netrw_disabled)
     lib.open()
   end
   M.initialized = true
+  
+  local currentBuffer = vim.fn.expand('%')
+  if currentBuffer == "NvimTree" then
+    vim.cmd("stopinsert")
+  end
 end
 
 local function manage_netrw(disable_netrw, hijack_netrw)
